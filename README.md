@@ -175,3 +175,180 @@ This README provides a quick reference for commonly used Docker commands, catego
 - `:wq!` - Overwrite and save a file in the vi editor.
 
 ---
+
+# Jenkins Documentation
+
+Jenkins is an open-source automation server that enables developers to build, test, and deploy their applications efficiently. It supports continuous integration (CI) and continuous delivery (CD) practices, making it a critical tool for DevOps teams.
+
+## About Jenkins
+Jenkins is highly extensible, offering a vast ecosystem of plugins to integrate with various tools, technologies, and platforms. It provides a user-friendly web interface to configure pipelines, manage builds, and monitor logs.
+
+## Key Features
+- **Extensible Plugin System:** Integrate with a wide range of tools and platforms.
+- **Pipeline as Code:** Define complex build pipelines using Jenkinsfile.
+- **Distributed Builds:** Distribute workloads across multiple nodes for better efficiency.
+- **Web Interface:** Manage and monitor builds using a user-friendly UI.
+- **Security:** Role-based access control and integration with authentication providers.
+
+## Benefits
+- Automates repetitive tasks, improving development efficiency.
+- Supports a wide range of programming languages and tools.
+- Facilitates better collaboration through shared pipelines and logs.
+- Provides detailed analytics and insights into builds.
+
+## Installation
+1. **Install Jenkins on Linux:**
+   ```bash
+   sudo apt update
+   sudo apt install openjdk-11-jre
+   wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+   sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+   sudo apt update
+   sudo apt install jenkins
+   ```
+2. **Access Jenkins:**
+   - Open your browser and navigate to `http://<your-server-ip>:8080`.
+   - Follow the setup wizard to unlock Jenkins and install recommended plugins.
+
+## Common Jenkins Commands
+- `sudo systemctl start jenkins` - Start Jenkins service.
+- `sudo systemctl stop jenkins` - Stop Jenkins service.
+- `sudo systemctl restart jenkins` - Restart Jenkins service.
+- `sudo systemctl status jenkins` - Check the status of Jenkins service.
+
+## Creating a Pipeline
+1. **Create a Jenkinsfile:**
+   ```groovy
+   pipeline {
+       agent any
+
+       stages {
+           stage('Build') {
+               steps {
+                   echo 'Building...'
+               }
+           }
+           stage('Test') {
+               steps {
+                   echo 'Testing...'
+               }
+           }
+           stage('Deploy') {
+               steps {
+                   echo 'Deploying...'
+               }
+           }
+       }
+   }
+   ```
+2. **Add to Source Control:**
+   - Save the `Jenkinsfile` in your project's repository.
+3. **Create a New Pipeline Job:**
+   - In Jenkins, create a new pipeline job and configure it to use the repository containing the `Jenkinsfile`.
+
+## Useful Plugins
+- **Git Plugin:** Integrate Jenkins with Git repositories.
+- **Pipeline Plugin:** Enable pipeline as code functionality.
+- **Docker Plugin:** Build and deploy Docker containers.
+- **Slack Plugin:** Send build notifications to Slack.
+
+## Troubleshooting
+- **Unlock Key Missing:** Check `/var/lib/jenkins/secrets/initialAdminPassword`.
+- **Build Failures:** Check logs for detailed error messages.
+- **Plugins Not Loading:** Restart Jenkins and ensure plugins are updated.
+
+## Learn More
+For more information, visit the [Jenkins Documentation](https://www.jenkins.io/doc/).
+
+---
+
+# AWS Services Documentation
+
+Explore various AWS services and their key features in this easy-to-read Markdown documentation.
+
+---
+
+### EC2 (Elastic Compute Cloud)
+- **Description:** Scalable virtual servers in the cloud.
+- **Use Cases:**
+  - Hosting websites
+  - Running applications
+  - High-performance computing
+- **Key Features:**
+  - Wide range of instance types
+  - Elastic scalability
+  - Pay-as-you-go pricing
+
+---
+
+### S3 (Simple Storage Service)
+- **Description:** Secure, scalable, and highly available object storage.
+- **Use Cases:**
+  - Backup and restore
+  - Data lakes
+  - Media hosting
+- **Key Features:**
+  - 99.999999999% durability
+  - Object versioning
+  - Lifecycle management
+
+---
+
+### RDS (Relational Database Service)
+- **Description:** Managed relational databases in the cloud.
+- **Use Cases:**
+  - Running MySQL, PostgreSQL, and other databases
+- **Key Features:**
+  - Automated backups
+  - Multi-AZ deployments
+  - Read replicas for scalability
+
+---
+
+### Lambda
+- **Description:** Serverless compute service.
+- **Use Cases:**
+  - Event-driven architecture
+  - Real-time data processing
+  - Backends
+- **Key Features:**
+  - Pay only for compute time
+  - Automatic scaling
+  - Supports multiple programming languages
+
+---
+
+### VPC (Virtual Private Cloud)
+- **Description:** Isolated network for your resources.
+- **Use Cases:**
+  - Hosting secure applications
+  - Connecting on-premises to AWS
+- **Key Features:**
+  - Subnets and routing
+  - Security groups
+  - Network ACLs
+
+---
+
+### VPN (Virtual Private Network)
+- **Description:** Securely connect your on-premises network to AWS.
+- **Use Cases:**
+  - Hybrid cloud deployments
+  - Secure communication
+- **Key Features:**
+  - IPsec tunnels
+  - Redundant connections
+  - Scalable bandwidth
+
+---
+
+### ECR (Elastic Container Registry)
+- **Description:** Fully managed container registry.
+- **Use Cases:**
+  - Store, manage, and deploy container images
+- **Key Features:**
+  - Integration with Amazon ECS and Kubernetes
+  - High availability
+  - Security and encryption
+
+---
