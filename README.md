@@ -129,3 +129,49 @@ resource "aws_instance" "example" {
 For detailed guides and resources, visit the [Terraform Documentation](https://www.terraform.io/docs/).
 
 ---
+
+# Docker Commands Cheat Sheet
+
+This README provides a quick reference for commonly used Docker commands, categorized by their purpose. Customize it for your specific needs!
+
+## Network Management
+- `docker network ls` - Show all the networks.
+- `docker network rm <my_net>` - Delete a specific network.
+- `docker create network <name>` - Create a new network.
+
+## Container Management
+- `docker ps` - List all running containers.
+- `docker ps -a` - List all containers (running and stopped).
+- `docker kill` - Kill a running container.
+- `docker rm` - Permanently delete a container.
+- `docker rm -f` - Forcefully remove a container.
+- `docker exec -it <container_id> /bin/bash` - Access a running container's shell.
+- `docker logs <container_id>` - View logs from a container.
+- `docker stats` - Display real-time statistics of container usage (CPU, memory, etc.).
+- `docker stop <container_id>` - Stop a running container.
+- `docker start <container_id>` - Start a stopped container.
+
+## Image Management
+- `docker images` - Show all Docker images.
+- `docker rmi -f` - Forcefully remove a Docker image.
+- `docker build -t <image_name> .` - Build a Docker image from a Dockerfile.
+- `docker tag <image_id> <repository:tag>` - Tag an image for easier reference.
+- `docker pull <repository:tag>` - Download an image from a Docker registry.
+- `docker push <repository:tag>` - Upload an image to a Docker registry.
+
+## Volume Management
+- `docker volume ls` - Show all volumes.
+- `docker volume rm <name_of_volume>` - Delete a specific volume.
+- `docker create volume <name>` - Create a new volume.
+- `docker volume inspect <name_of_volume>` - View details of a specific volume.
+
+## Additional Commands
+- `docker compose up` - Start all services defined in a `docker-compose.yml` file.
+- `docker compose down` - Stop all services and remove containers defined in `docker-compose.yml`.
+- `docker system prune` - Remove all unused containers, networks, images, and volumes.
+- `docker info` - Display detailed information about the Docker installation.
+- `docker version` - Show Docker version details.
+- `sudo apt install docker-buildx` - Install Docker Buildx.
+- `:wq!` - Overwrite and save a file in the vi editor.
+
+---
