@@ -180,6 +180,8 @@ This README provides a quick reference for commonly used Docker commands, catego
 
 Jenkins is an open-source automation server that enables developers to build, test, and deploy their applications efficiently. It supports continuous integration (CI) and continuous delivery (CD) practices, making it a critical tool for DevOps teams.
 
+![logo](https://github.com/Sidhant-Sinha/DevOps/blob/main/1727816308059.jpeg)
+
 ## About Jenkins
 Jenkins is highly extensible, offering a vast ecosystem of plugins to integrate with various tools, technologies, and platforms. It provides a user-friendly web interface to configure pipelines, manage builds, and monitor logs.
 
