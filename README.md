@@ -354,3 +354,101 @@ Explore various AWS services and their key features in this easy-to-read Markdow
   - Security and encryption
 
 ---
+
+# AWS EC2 (Elastic Compute Cloud)
+
+Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers. This section provides details on using AWS EC2 effectively for your project.
+
+## Features of AWS EC2
+- **Scalability:** Easily scale up or down based on your workload.
+- **Security:** Secure instances with AWS Identity and Access Management (IAM) roles, Security Groups, and encryption.
+- **Flexibility:** Choose from various instance types optimized for different use cases, such as compute, memory, or storage.
+- **Cost-Effectiveness:** Pay only for what you use with multiple pricing models (On-Demand, Reserved Instances, Spot Instances).
+- **Integration:** Seamlessly integrates with other AWS services like S3, RDS, CloudWatch, and IAM.
+
+## How to Launch an EC2 Instance
+### Step 1: Log in to AWS Management Console
+1. Navigate to the [AWS Management Console](https://aws.amazon.com/console/).
+2. Sign in with your credentials.
+
+### Step 2: Navigate to the EC2 Dashboard
+1. Search for "EC2" in the Services search bar.
+2. Click on **EC2** to access the EC2 Dashboard.
+
+### Step 3: Launch an Instance
+1. Click on **Launch Instance**.
+2. Provide a name for your instance.
+3. Choose an Amazon Machine Image (AMI): Select the operating system you want (e.g., Ubuntu, Amazon Linux, Windows Server).
+4. Choose an instance type: Pick an instance type based on your project needs (e.g., `t2.micro` for free tier eligibility).
+5. Configure network settings:
+   - Choose or create a security group.
+   - Set inbound rules to allow traffic (e.g., HTTP, HTTPS, or SSH).
+6. Add storage: Define the size and type of storage (e.g., 8GB General Purpose SSD).
+7. Configure key pair:
+   - Create or choose a key pair for secure SSH access.
+   - Download the private key file (e.g., `.pem`).
+8. Review and click **Launch Instance**.
+
+### Step 4: Connect to Your Instance
+1. Open your terminal (or use an SSH client like PuTTY).
+2. Use the following command to connect:
+   ```bash
+   ssh -i "path-to-your-key.pem" ec2-user@<instance-public-ip>
+   ```
+3. Replace `path-to-your-key.pem` with the path to your private key file and `<instance-public-ip>` with the public IP address of your instance.
+
+### Step 5: Deploy Your Application
+- Install necessary packages or dependencies.
+- Upload your application files using tools like `scp` or Git.
+- Start your application server.
+
+## Best Practices
+- **Security:**
+  - Use IAM roles for instance access to AWS resources.
+  - Regularly update the instance OS and installed software.
+  - Configure Security Groups to allow only necessary traffic.
+- **Monitoring:**
+  - Use CloudWatch to monitor metrics such as CPU utilization, disk I/O, and network activity.
+  - Set up alarms for unusual activity.
+- **Backup:**
+  - Regularly create snapshots of your instance volumes.
+  - Use Auto Scaling Groups for high availability.
+
+## Troubleshooting
+- **Connection Issues:**
+  - Ensure the instance's security group allows inbound SSH traffic on port 22.
+  - Verify that the private key file permissions are set to `400`.
+- **Instance Performance:**
+  - Monitor metrics in CloudWatch to identify bottlenecks.
+  - Consider upgrading the instance type for more resources.
+- **Instance Access:**
+  - If you lose the private key, you can recover access by creating a new key pair and attaching it to the instance using the AWS Console.
+
+## Useful Commands
+### Start, Stop, and Terminate an Instance
+```bash
+aws ec2 start-instances --instance-ids <instance-id>
+aws ec2 stop-instances --instance-ids <instance-id>
+aws ec2 terminate-instances --instance-ids <instance-id>
+```
+
+### Describe Instances
+```bash
+aws ec2 describe-instances
+```
+
+### SSH into the Instance
+```bash
+ssh -i "path-to-your-key.pem" ec2-user@<instance-public-ip>
+```
+
+## References
+- [AWS EC2 Documentation](https://docs.aws.amazon.com/ec2/index.html)
+- [AWS Pricing Calculator](https://calculator.aws/#/)
+- [Amazon Machine Images (AMIs)](https://aws.amazon.com/marketplace/solutions/amis)
+
+## Author
+- [Sidhant Sinha](https://github.com/Sidhant-Sinha)
+
+---
+This guide is intended to help you get started with AWS EC2 and ensure you follow best practices for deploying and managing your applications on the cloud.
